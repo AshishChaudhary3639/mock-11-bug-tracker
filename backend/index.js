@@ -8,6 +8,9 @@ const app=express()
 app.use(express.json())
 app.use(cors())
 
+app.use("/",(req,res)=>{
+    res.send("Welcome")
+})
 app.use("/",userRoute)
 app.listen(process.env.PORT,async()=>{
 
