@@ -7,8 +7,8 @@ const Navbar = () => {
   return (
     <Flex w={"100%"} justifyContent={"center"} gap={"2rem"} bgColor={"teal"} alignItems={"center"} h={"12vh"} >
         <Button onClick={()=>navigate("/signup")}>Sign Up</Button>
-        <Button>Sign In</Button>
-        <Button>Dashboard</Button>
+        <Button onClick={()=>navigate("/login")}>Sign In</Button>
+        <Button onClick={()=>navigate("/dashboard")}>Dashboard</Button>
     </Flex>
   )
 }

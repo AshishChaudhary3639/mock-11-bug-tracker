@@ -9,26 +9,23 @@ import {
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { signup } from "../redux/authReducer/action";
+import { login, signup } from "../redux/authReducer/action";
 import { useNavigate } from "react-router-dom";
-const SignupPage = () => {
-  const [name, setName] = useState("");
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = () => {
-    alert("working")
-    if (name && email && password) {
+    alert("working");
+    if (email && password) {
       let payload = {
-          useName: name,
-          email: email,
+        email: email,
         password: password,
-    };
-      dispatch(signup(payload)).then(() => {
-        navigate("/login");
+      };
+      dispatch(login(payload)).then(() => {
+            
       });
-
     }
   };
   return (
@@ -42,15 +39,6 @@ const SignupPage = () => {
         minH={"60vh"}
         lineHeight={"2rem"}
       >
-        <FormControl isRequired>
-          <FormLabel>Name</FormLabel>
-          <Input
-            placeholder="User Name"
-            type={"text"}
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </FormControl>
         <FormControl isRequired>
           <FormLabel>Email</FormLabel>
           <Input
@@ -84,4 +72,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default LoginPage;
